@@ -51,6 +51,8 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 import numpy as np
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 from src.dtn import build_dtn_matrix
@@ -201,6 +203,7 @@ ax_A.legend()
 ax_A.grid(True, which="both")
 fig_A.tight_layout()
 fig_A.savefig(os.path.join(output_dir, "python_convergence_gaussian.png"), dpi=150)
+plt.close(fig_A)
 
 # ===========================================================================
 # FIGURE B: Sinusoidal test — exact vs matrix  (Test B)
@@ -224,6 +227,6 @@ ax_B.legend()
 ax_B.grid(True)
 fig_B.tight_layout()
 fig_B.savefig(os.path.join(output_dir, "python_sinusoidal_exact_test.png"), dpi=150)
+plt.close(fig_B)
 
 print(f"  Figures saved to:  {os.path.abspath(output_dir)}")
-plt.show()

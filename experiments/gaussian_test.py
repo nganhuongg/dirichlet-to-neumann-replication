@@ -46,6 +46,8 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 import numpy as np
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 from src.dtn import build_dtn_matrix        # matrix DtN (our approximation)
@@ -124,6 +126,7 @@ ax1.set_title(
 ax1.grid(True)
 fig1.tight_layout()
 fig1.savefig(os.path.join(output_dir, "python_dtn_input_gaussian.png"), dpi=150)
+plt.close(fig1)
 
 # ===========================================================================
 # FIGURE 2: Comparison — spectral vs matrix DtN  (paper Figure 4.2b)
@@ -149,6 +152,7 @@ ax2.set_title(
 ax2.grid(True)
 fig2.tight_layout()
 fig2.savefig(os.path.join(output_dir, "python_dtn_comparison.png"), dpi=150)
+plt.close(fig2)
 
 # ===========================================================================
 # FIGURE 3: Row structure of N  (paper Figure 4.3)
@@ -178,6 +182,6 @@ ax3.legend()
 ax3.grid(True)
 fig3.tight_layout()
 fig3.savefig(os.path.join(output_dir, "python_dtn_matrix_rows.png"), dpi=150)
+plt.close(fig3)
 
 print(f"\n  Figures saved to:  {os.path.abspath(output_dir)}")
-plt.show()
