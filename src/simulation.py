@@ -16,7 +16,13 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-from src.dtn import build_dtn_matrix
+try:
+    from src.dtn import build_dtn_matrix
+except ModuleNotFoundError:
+    import sys
+
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+    from src.dtn import build_dtn_matrix
 
 
 @dataclass(frozen=True)
@@ -167,11 +173,24 @@ def save_outputs(results: dict[str, np.ndarray | float], output_dir: Path) -> No
     fig = plt.figure(figsize=(8, 5))
     ax = fig.add_subplot(111, projection="3d")
     tt, xx = np.meshgrid(t_vec, x_vec)
-    ax.plot_surface(tt, xx, pressure, cmap="viridis", linewidth=0, antialiased=False)
+
+    # Match MATLAB's smooth surf rendering more closely by disabling the
+    # default downsampling in Matplotlib's 3D surface plot.
+    ax.plot_surface(
+        tt,
+        xx,
+        pressure,
+        cmap="viridis",
+        linewidth=0,
+        antialiased=False,
+        rcount=pressure.shape[0],
+        ccount=pressure.shape[1],
+    )
     ax.set_xlabel("t / tau")
     ax.set_ylabel("x / l")
     ax.set_zlabel("p_s")
     ax.set_title("Gaussian pressure distribution")
+    ax.view_init(elev=25, azim=-60)
     fig.tight_layout()
     fig.savefig(output_dir / "python_simulation_pressure_surface.png", dpi=180)
     plt.close(fig)
