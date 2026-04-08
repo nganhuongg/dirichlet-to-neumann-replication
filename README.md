@@ -111,17 +111,17 @@ and compare the matrix result against the FFT-based spectral reference.
 
 MATLAB reference:
 
-![MATLAB DtN comparison](results/figures/matlab_dtn_comparison.png)
+![MATLAB DtN comparison](./results/figures/matlab_dtn_comparison.png)
 
 Python replication:
 
-![Python DtN comparison](results/figures/python_dtn_comparison.png)
+![Python DtN comparison](./results/figures/python_dtn_comparison.png)
 
 This is the most important validation in the repository. The close agreement shows that the replicated DtN matrix is capturing the same surface-normal derivative as the original construction.
 
 For completeness, the Gaussian input itself is also saved:
 
-![Python Gaussian input](results/figures/python_dtn_input_gaussian.png)
+![Python Gaussian input](./results/figures/python_dtn_input_gaussian.png)
 
 ### 2. DtN matrix structure
 
@@ -129,11 +129,11 @@ The DtN operator is assembled as a dense symmetric Toeplitz-like matrix: each ro
 
 MATLAB structure plot:
 
-![MATLAB DtN matrix structure](results/figures/matlab_dtn_matrix_structure.png)
+![MATLAB DtN matrix structure](./results/figures/matlab_dtn_matrix_structure.png)
 
 Python row-structure plot:
 
-![Python DtN matrix rows](results/figures/python_dtn_matrix_rows.png)
+![Python DtN matrix rows](./results/figures/python_dtn_matrix_rows.png)
 
 These plots are not just cosmetic. They help confirm that the Python code is assembling the same kind of operator as the MATLAB original, not merely producing similar output for one test case.
 
@@ -146,11 +146,11 @@ Beyond reproducing the paper-style Gaussian comparison, the Python experiments a
 
 Gaussian convergence:
 
-![Python convergence study](results/figures/python_convergence_gaussian.png)
+![Python convergence study](./results/figures/python_convergence_gaussian.png)
 
 Sinusoidal exact test:
 
-![Python sinusoidal exact test](results/figures/python_sinusoidal_exact_test.png)
+![Python sinusoidal exact test](./results/figures/python_sinusoidal_exact_test.png)
 
 These figures go a bit beyond the original appendix-style scripts and make the replication more convincing numerically. They show that the Python implementation is not only qualitatively similar, but also behaves like a consistent convergent discretization.
 
@@ -164,11 +164,11 @@ p_s(x, t) = e^{-x^2}\left(\frac12 - \frac12\cos(2\pi t)\right).
 
 MATLAB pressure surface:
 
-![MATLAB pressure surface](results/figures/matlab_simulation_pressure_surface.png)
+![MATLAB pressure surface](./results/figures/matlab_simulation_pressure_surface.png)
 
 Python pressure surface:
 
-![Python pressure surface](results/figures/python_simulation_pressure_surface.png)
+![Python pressure surface](./results/figures/python_simulation_pressure_surface.png)
 
 The two renderings do not look perfectly identical because MATLAB and Matplotlib handle 3D surface rendering differently, but they represent the same forcing law and the same parameter choices.
 
@@ -180,41 +180,41 @@ The final replication target is the coupled free-surface simulation advanced wit
 
 MATLAB:
 
-![MATLAB free-surface snapshot t15](results/figures/matlab_simulation_snapshot_t15.png)
+![MATLAB free-surface snapshot t15](./results/figures/matlab_simulation_snapshot_t15.png)
 
 Python:
 
-![Python free-surface snapshot t15](results/figures/python_simulation_snapshot_t15.png)
+![Python free-surface snapshot t15](./results/figures/python_simulation_snapshot_t15.png)
 
 #### Snapshot at `t55`
 
 MATLAB:
 
-![MATLAB free-surface snapshot t55](results/figures/matlab_simulation_snapshot_t55.png)
+![MATLAB free-surface snapshot t55](./results/figures/matlab_simulation_snapshot_t55.png)
 
 Python:
 
-![Python free-surface snapshot t55](results/figures/python_simulation_snapshot_t55.png)
+![Python free-surface snapshot t55](./results/figures/python_simulation_snapshot_t55.png)
 
 #### Snapshot at `t95`
 
 MATLAB:
 
-![MATLAB free-surface snapshot t95](results/figures/matlab_simulation_snapshot_t95.png)
+![MATLAB free-surface snapshot t95](./results/figures/matlab_simulation_snapshot_t95.png)
 
 Python:
 
-![Python free-surface snapshot t95](results/figures/python_simulation_snapshot_t95.png)
+![Python free-surface snapshot t95](./results/figures/python_simulation_snapshot_t95.png)
 
 #### Snapshot at `t135`
 
 MATLAB:
 
-![MATLAB free-surface snapshot t135](results/figures/matlab_simulation_snapshot_t135.png)
+![MATLAB free-surface snapshot t135](./results/figures/matlab_simulation_snapshot_t135.png)
 
 Python:
 
-![Python free-surface snapshot t135](results/figures/python_simulation_snapshot_t135.png)
+![Python free-surface snapshot t135](./results/figures/python_simulation_snapshot_t135.png)
 
 Taken together, these four time levels are the clearest evidence that the Python solver is reproducing the same qualitative free-surface evolution as the original MATLAB code.
 
